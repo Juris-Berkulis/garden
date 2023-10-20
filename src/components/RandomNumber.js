@@ -4,6 +4,6 @@ class RandomNumber {
     };
 
     static create (maxNumber) {
-        return Math.floor(Math.random() * maxNumber)
+        return Math.floor(Math.random() * (maxNumber + 1))
     };
 };

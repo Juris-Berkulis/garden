@@ -1,0 +1,7 @@
+{
+  "name": "garden",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "surge --project . --domain https://apple-garden.surge.sh/ && surge list"
+  }
+}
