@@ -5,7 +5,7 @@ const applesCountButton = document.getElementById('apples-count-btn');
 const infoButton = document.getElementById('info-btn');
 const plusOneDayButton = document.getElementById('plus-one-day-btn');
 
-treesCountButton.addEventListener('click', () => console.log(garden.getTreesCount()));
-applesCountButton.addEventListener('click', () => console.log(garden.getApplesCount()));
-infoButton.addEventListener('click', () => console.log(garden.getInfo()));
-plusOneDayButton.addEventListener('click', () => garden.passDay());
+treesCountButton.onclick = () => console.log(garden.getTreesCount());
+applesCountButton.onclick = () => console.log(garden.getApplesCount());
+infoButton.onclick = () => console.log(garden.getInfo());
+plusOneDayButton.onclick = () => garden.passDay();

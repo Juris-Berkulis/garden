@@ -9,15 +9,56 @@
     <script src="./src/components/Tree.js" defer></script>
     <script src="./src/components/Garden.js" defer></script>
     <script src="./src/main.js" defer></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info {
+            padding: 15px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .garden {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+        }
+
+        @media (max-width: 1600px) {
+            .garden {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .garden {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .garden__tree {
+            padding: 5px;
+            border: 1px solid #000000;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <div id="garden">
+        <div class="info">
             <button id="trees-count-btn">Количество деревьев</button>
             <button id="apples-count-btn">Количество яблок</button>
             <button id="info-btn">Информация</button>
             <button id="plus-one-day-btn">+1 день</button>
+            <span id="watched-day-text"></span>
+            <span id="trees-count-text"></span>
+            <span id="apples-count-text"></span>
         </div>
+        <div class="garden" id="garden"></div>
     </div>
 </body>
 </html>

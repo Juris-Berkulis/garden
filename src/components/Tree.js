@@ -33,12 +33,37 @@ class Tree {
         })
     };
 
+    render (index) {
+        const treeTittle = document.createElement('h2');
+        treeTittle.innerText = `Дерево: ${index}`;
+
+        const treeAge = document.createElement('p');
+        treeAge.innerText = `Возраст: ${this.#treeAge}`;
+
+        const applesCount = document.createElement('p');
+        applesCount.innerText = `Яблоки: ${this.getApplesCount()} шт.`;
+
+        const infoBtn = document.createElement('button');
+        infoBtn.innerText = 'Консоль';
+        infoBtn.onclick = () => console.log(this.getInfo());
+
+        const tree = document.createElement('div');
+        tree.classList.add('garden__tree')
+        tree.append(treeTittle);
+        tree.append(treeAge);
+        tree.append(applesCount);
+        tree.append(infoBtn);
+
+        return tree
+    };
+
     passDay () {
-        this.#applesList.forEach((apple) => {
+        this.#applesList = this.#applesList.filter((apple) => {
             apple.passDay();
+            return apple.getInfo().appleAge < 36
         });
 
         this.#treeAge++;
-        if (this.#treeAge % 30 === 0) this.#createAplee();
+        if (this.#treeAge % 30 === 0) this.#createAplees();
     };
 };

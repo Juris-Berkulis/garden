@@ -63,7 +63,13 @@ class Apple {
     };
 
     getInfo () {
-        return `Возраст: ${this.appleAge}, Цвет: ${this.appleColor}, Размер: ${this.appleSize}, Расположение: ${this.isFallen}, Состояние: ${this.isSpoiled}.`
+        return {
+            appleAge: this.appleAge,
+            appleColor: this.appleColor,
+            appleSize: this.appleSize,
+            isFallen: this.isFallen,
+            isSpoiled: this.isSpoiled,
+        }
     };
 
     passDay () {

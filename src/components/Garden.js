@@ -1,9 +1,20 @@
 class Garden {
+    #garden;
+    #watchedDayText
+    #treesCountText
+    #applesCountText
+
     #observationDaysCount = 0;
     #treesList = [];
 
     constructor () {
+        this.#garden = document.getElementById('garden');
+        this.#watchedDayText = document.getElementById('watched-day-text');
+        this.#treesCountText = document.getElementById('trees-count-text');
+        this.#applesCountText = document.getElementById('apples-count-text');
+
         this.#createGarden();
+        this.render();
     };
 
     #createTree () {
@@ -38,11 +49,24 @@ class Garden {
         })
     };
 
+    render () {
+        this.#garden.innerHTML = '';
+
+        this.#treesList.forEach((tree, index) => {
+            this.#garden.append(tree.render(index));
+        });
+        
+        this.#watchedDayText.innerHTML = `День ${this.#observationDaysCount}`;
+        this.#treesCountText.innerHTML = `Деревья: ${this.getTreesCount()}`;
+        this.#applesCountText.innerHTML = `Яблоки: ${this.getApplesCount()}`;
+    };
+
     passDay () {
         this.#treesList.forEach((tree) => {
             tree.passDay();
         });
 
         this.#observationDaysCount++;
+        this.render();
     };
 };
